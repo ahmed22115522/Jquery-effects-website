@@ -10,20 +10,7 @@ $(document).ready(function() {
     })
 });
 
-$('#sideBar').click(() => {
-    let width = $('#slider').innerWidth()
-    if ($('#slider').css('left') == '0px' ) {
-        $('#slider').animate({'left' : `-${width}px`}, 1000)
-        $('#sideBar').animate({'marginLeft' : `0px`}, 1000)
-        $('#sideWord').animate({'marginLeft' : `0px`}, 1000)
-    }
-    else{
-        $('#slider').animate({'left' : `0px`}, 1000)
-        $('#sideBar').animate({'marginLeft' : `${width}px`}, 1000)
-        $('#sideWord').animate({'marginLeft' : `${width}px`}, 1000)
-    }
-})
-$('#slider i').click(() => {
+$('#sideBar , #slider i').click(() => {
     let width = $('#slider').innerWidth()
     if ($('#slider').css('left') == '0px' ) {
         $('#slider').animate({'left' : `-${width}px`}, 1000)
@@ -80,4 +67,10 @@ $('#comment').on('keyup', (e) => {
         $('#allChar').removeClass("text-danger")
         
     }
+})
+
+$('.links').click((e) => {
+    let scrollLink = $(e.target).attr('href')
+    let linkOffset = $(scrollLink).offset().top
+    $('html,body').animate({scrollTop : `${linkOffset}px`}, 1000)
 })
